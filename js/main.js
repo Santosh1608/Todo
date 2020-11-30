@@ -1,9 +1,9 @@
 const button = document.querySelector("button");
 const input = document.querySelector("input");
+const body = document.querySelector("body");
+const content = document.querySelector("#content");
 const ul = document.querySelector("ul");
-const para = ul.previousElementSibling;
-
-let i = [];
+let i;
 let flag = true;
 let count = 0;
 let parent;
@@ -27,27 +27,22 @@ function createTodo(todo) {
   input.value = "";
   console.log(flag);
   if (flag) {
-    para.textContent = "Todos";
+    content.textContent = "Todos";
     flag = false;
   }
 }
-ul.addEventListener("click", (e) => {
-  if ((e.target.className = "fa fa-remove")) removeTodo(e.target.parentNode);
+body.addEventListener("click", (e) => {
+  if (e.target.className === "fa fa-remove") removeTodo(e.target.parentNode);
 });
-function call() {
-  i.forEach((x) => {
-    x.addEventListener("click", (e) => {
-      removeTodo(e.target.parentNode);
-    });
-  });
-}
 
 function removeTodo(list) {
   console.log(list);
-  count = list.parentNode.children.length;
-  if (count <= 1) para.textContent = "No Todos To Show";
+  console.log(list.parentElement.children, list.parentElement.children.length);
+  if (list.parentElement.children.length === 1) {
+    content.textContent = "No Todos to Show";
+    flag = true;
+  }
   list.remove();
-  flag = true;
 }
 //local storage
 
