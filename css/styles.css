@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+.wrap {
+  max-width: 800px;
+  margin: auto;
+  padding: 0.3rem;
+  border: 1px solid rgb(247, 241, 241);
+}
+
+form p {
+  font-size: 2rem;
+  font-weight: 100;
+  padding-bottom: 1.2rem;
+  padding-top: 1rem;
+}
+form input {
+  padding: 0.5rem;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border: none;
+  border-bottom: 1px rgb(155, 154, 154) solid;
+  font-size: 16px;
+}
+form input:focus {
+  outline-color: rgb(79, 159, 224);
+}
+
+button {
+  padding: 0.7rem 1rem;
+  background: #32c3fc;
+  text-decoration: none;
+  color: #f4f4f4;
+  display: inline-block;
+  margin-top: 2rem;
+  border: none;
+}
+
+ul li {
+  list-style: none;
+  border-top: 1px solid rgb(230, 225, 225);
+  padding: 1rem;
+  border-left: 1px solid rgb(230, 225, 225);
+  border-right: 1px solid rgb(230, 225, 225);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+ul li:last-child {
+  border-bottom: 1px solid rgb(230, 225, 225);
+}
+.line {
+  margin-top: 1rem;
+  width: 100%;
+  height: 1px;
+  background: rgb(207, 203, 203);
+}
+/* -----------------items---------------- */
+.box p {
+  font-size: 1.8rem;
+  font-weight: 100;
+  padding: 1rem 1rem 1rem 0;
+}
+
+li i {
+  margin-left: auto;
+  color: red;
+}
