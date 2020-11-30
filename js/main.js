@@ -25,13 +25,17 @@ function createTodo(todo) {
   li.appendChild(cross);
   ul.appendChild(li);
   input.value = "";
-  i = document.querySelectorAll("i");
-  call();
+  //   i = document.querySelectorAll("i");
+  //   call();
+  console.log(flag);
   if (flag) {
     para.textContent = "Todos";
     flag = false;
   }
 }
+ul.addEventListener("click", (e) => {
+  if ((e.target.className = "fa fa remove")) removeTodo(e.target.parentNode);
+});
 function call() {
   i.forEach((x) => {
     x.addEventListener("click", (e) => {
@@ -41,7 +45,9 @@ function call() {
 }
 
 function removeTodo(list) {
+  console.log(list);
   count = list.parentNode.children.length;
   if (count <= 1) para.textContent = "No Todos To Show";
   list.remove();
+  flag = true;
 }
