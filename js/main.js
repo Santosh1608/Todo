@@ -25,8 +25,6 @@ function createTodo(todo) {
   li.appendChild(cross);
   ul.appendChild(li);
   input.value = "";
-  //   i = document.querySelectorAll("i");
-  //   call();
   console.log(flag);
   if (flag) {
     para.textContent = "Todos";
@@ -34,7 +32,7 @@ function createTodo(todo) {
   }
 }
 ul.addEventListener("click", (e) => {
-  if ((e.target.className = "fa fa remove")) removeTodo(e.target.parentNode);
+  if ((e.target.className = "fa fa-remove")) removeTodo(e.target.parentNode);
 });
 function call() {
   i.forEach((x) => {
@@ -51,3 +49,26 @@ function removeTodo(list) {
   list.remove();
   flag = true;
 }
+//local storage
+
+// localStorage.setItem("name", "SAn");
+
+// //session storage
+
+// sessionStorage.setItem("name", "SANTHOSH");
+
+// //remove from storage
+// // localStorage.removeItem("name")
+
+// //get from storage
+// const name = localStorage.getItem("name");
+// console.log(name);
+
+// //To clear all localStorage data
+
+// // localStorage.clear();
+
+// const a = "[1, 2, 3, 4]";
+
+// // console.log(typeof JSON.stringify(a));
+// console.log(typeof JSON.parse(a), JSON.parse(a));
