@@ -4,16 +4,39 @@ const body = document.querySelector("body");
 const content = document.querySelector("#content");
 const ul = document.querySelector("ul");
 let i;
-let flag = true;
+let flag;
 let count = 0;
-let parent;
+let tasks;
+(function () {
+  if (
+    localStorage.getItem("tasks") === null ||
+    JSON.parse(localStorage.getItem("tasks")).length === 0
+  ) {
+    tasks = [];
+    flag = false;
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+    for (let i = 0; i < tasks.length; i++) {
+      createTodo(tasks[i], 2);
+    }
+    console.log(tasks);
+    flag = true;
+    content.textContent = "Todos";
+  }
+})();
 button.addEventListener("click", (e) => {
   e.preventDefault();
-  createTodo(input.value);
+  createTodo(input.value, 1);
 });
 
-function createTodo(todo) {
+function createTodo(todo, loc) {
+  flag = true;
   if (todo == "" || todo == " ") return;
+  if (loc === 1) {
+    tasks.push(todo);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+  console.log(tasks);
   const li = document.createElement("li");
   li.className = "item";
   const span = document.createElement("span");
@@ -36,13 +59,23 @@ body.addEventListener("click", (e) => {
 });
 
 function removeTodo(list) {
-  console.log(list);
-  console.log(list.parentElement.children, list.parentElement.children.length);
+  const text = list.childNodes[0].textContent;
+  let index = 0;
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i] === text) {
+      index = i;
+      break;
+    }
+  }
+  // console.log(index);
+  tasks.splice(index, 1);
+  // console.log(tasks);
   if (list.parentElement.children.length === 1) {
     content.textContent = "No Todos to Show";
     flag = true;
   }
   list.remove();
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 //local storage
 
